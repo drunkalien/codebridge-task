@@ -3,9 +3,8 @@ import { Post } from "../../components";
 
 const PostPage = () => {
   const router = useRouter();
-  const { id } = router.query;
 
-  return <Post id={Number(id)} />;
+  return <Post id={parseInt(router.query?.id as string)} />;
 };
 
 export default PostPage;
