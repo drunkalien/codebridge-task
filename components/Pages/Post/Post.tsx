@@ -10,12 +10,16 @@ const Post = () => {
   const router = useRouter();
   const { id } = router.query;
   const idx = parseInt(id as string);
-
+  console.log(idx);
   return (
     <Container>
-      <h2>{posts?.articles[idx]?.title}</h2>
-      <strong>{posts?.articles[idx]?.description}</strong>
-      <p>{posts?.articles[idx]?.content}</p>
+      {idx || idx === 0 ? (
+        <>
+          <h2>{posts?.articles[idx]?.title}</h2>
+          <strong>{posts?.articles[idx]?.description}</strong>
+          <p>{posts?.articles[idx]?.content}</p>
+        </>
+      ) : null}
       <Link href="/" passHref>
         <MuiLink color="#2832c2" underline="none">
           {"<"} Go Back
